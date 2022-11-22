@@ -27,10 +27,11 @@ def capture_video(process_frame, set_frame_size, file_path=None):
             print('read failed')
             break
 
-        new_frame = process_frame(last_frame, frame)
-        last_frame = frame
+        cv2.imshow('original', frame)
 
-        cv2.imshow('frame', new_frame)
+        process_frame(last_frame, frame)
+
+        last_frame = frame
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
