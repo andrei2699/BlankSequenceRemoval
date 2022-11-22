@@ -8,13 +8,13 @@ output_file = 'output.mp4'
 fourcc = cv2.VideoWriter_fourcc(*'MP42')
 out = cv2.VideoWriter(output_file, fourcc, 20.0, (0, 0))
 
-is_debug = True
+is_debug = False
 
 # parameters threshold
 blur_size = 5
 threshold_size = 5
 threshold_c = 4
-pixel_count = 10
+pixel_count = 30
 
 
 def adjust_blur_size(value):
