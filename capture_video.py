@@ -11,7 +11,7 @@ def capture_video_from_file_condition(cap):
 
 def capture_video(process_frame, set_frame_size, file_path=None):
     if file_path is None:
-        cap = cv2.VideoCapture(0)
+        cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
     else:
         cap = cv2.VideoCapture(file_path)
 
@@ -27,7 +27,7 @@ def capture_video(process_frame, set_frame_size, file_path=None):
             print('read failed')
             break
 
-        cv2.imshow('original', frame)
+        # cv2.imshow('original', frame)
 
         process_frame(last_frame, frame)
 

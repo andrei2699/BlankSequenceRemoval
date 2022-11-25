@@ -14,7 +14,7 @@ is_debug = False
 blur_size = 5
 threshold_size = 5
 threshold_c = 4
-pixel_count = 30
+pixel_count = 1
 
 
 def adjust_blur_size(value):
@@ -55,6 +55,9 @@ def process_frame(last_frame, current_frame):
     diff = cv2.absdiff(last_frame, current_frame)
 
     gray = cv2.cvtColor(diff, cv2.COLOR_BGR2GRAY)
+
+    # if cv2.countNonZero(gray) == 0:
+    #     return current_frame
 
     blur = cv2.GaussianBlur(gray, (blur_size, blur_size), 0)
 
